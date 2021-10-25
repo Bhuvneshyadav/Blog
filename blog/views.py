@@ -12,7 +12,7 @@ def home(request):
         'posts':Post.objects.all()
     }
 
-    return render(requset,'blog/home.html',context)
+    return render(request,'blog/home.html',context)
 
 class PostListView(ListView):
     model=Post
@@ -66,5 +66,9 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
         post=self.get_object()
         if self.request.user==post.author:
             return True
-        return False        
+        return False       
+def about(request):
+    
+
+    return render(request,'blog/about.html')
 
